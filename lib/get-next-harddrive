@@ -1,0 +1,4 @@
+#!/bin/bash
+
+backup_queue=${backup_queue-$1}
+head -1 ${backup_queue}

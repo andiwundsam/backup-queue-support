@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sn=${sn-$1}
+metadata_file=${metadata_file-$2}
+
+awk -F ' ' '$1 =="'$sn'" { print $_ }' <$metadata_file

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+last_change_file=${last_change_file-$1}
+change_days=${change_days-$2}
+
+set -e
+last_change=$(cat $last_change_File)
+now=$(date +%s)
+
+(( in_secs == 

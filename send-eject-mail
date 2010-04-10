@@ -1,0 +1,31 @@
+#!/bin/bash
+
+mydir="$(dirname $(readlink -f "$0"))"
+export PATH=$PATH:$mydir/lib
+
+config_file=${config_file:$1}
+
+if [ ! "$config_file" ]; then
+    config_file=$mydir/backupqueue.conf
+fi
+
+. $config_file
+
+export backup_name backup_contact location_info metadata_file backup_queue
+next_sn=$(get-next-harddrive)
+next_name=$(get-harddrive-name $next_sn)
+next_meta=$(get-harddrive-meta $next_sn)
+
+mail -s "[$backup_name] Platte $next_name einlegen" $backup_contact <<END
+Hallo lieber Admin,
+
+das Backup $backup_name braucht eine neue Platte. Und zwar
+$next_meta
+
+Bitte einlegen in:
+   $location_info
+
+Viele Gruesse
+
+BackupMgt
+END
