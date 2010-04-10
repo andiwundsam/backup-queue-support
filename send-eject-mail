@@ -16,14 +16,19 @@ next_sn=$(get-next-harddrive)
 next_name=$(get-harddrive-name $next_sn)
 next_meta=$(get-harddrive-meta $next_sn)
 
-mail -s "[$backup_name] Platte $next_name einlegen" $backup_contact <<END
+mail -s "[$backup_name] Platte $next_name auswerfen " $backup_contact <<END
+
 Hallo lieber Admin,
 
-das Backup $backup_name braucht eine neue Platte. Und zwar
+das Backup $backup_name wurde erfolgreich abgeschlossen. Bitte die Platte
+
 $next_meta
 
-Bitte einlegen in:
+auswerfen aus:
    $location_info
+
+ACHTUNG: Bitte vorher sicherstellen, dass Sie auch wirklich aus ist!
+
 
 Viele Gruesse
 
