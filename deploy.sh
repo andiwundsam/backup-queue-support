@@ -1,2 +1,4 @@
 #!/bin/bash
-rsync -av --exclude .svn/ . --exclude deploy.sh root@yoda-new:/usr/local/backup-queue/
+for i in coruscant yoda-new; do
+    rsync -av --exclude .svn/ . --exclude deploy.sh root@$i:/usr/local/backup-queue/
+done
