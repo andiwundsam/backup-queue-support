@@ -29,6 +29,9 @@ auswerfen aus:
 
 ACHTUNG: Bitte vorher sicherstellen, dass Sie auch wirklich aus ist!
 
+Bitte auch in der Papier-Liste des Backups ($backup_name) vermerken, dass
+das Backup heute ($(date +"%Y-%m-%d")) erfolgreich abgeschlossen wurde.
+
 
 Viele Gruesse
 
