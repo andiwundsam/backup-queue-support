@@ -1,0 +1,7 @@
+# label		file						warn_time	crit_time
+sync 		/var/lib/backup/last-backup-state.sync		15h		20h
+daily 		/var/lib/backup/last-backup-state.daily		28h		36h
+monthly 	/var/lib/backup/last-backup-state.monthly	32d		35d
+quarter	 	/var/lib/backup/last-backup-state.quarter	94d		100d
+ext-weekly	/var/lib/backup/last-backup-state.yoda-weekly	9d		16d
+monthly-carryoff	/var/lib/backup/last-backup-state.yoda-monthly-carryoff	31d	60d
