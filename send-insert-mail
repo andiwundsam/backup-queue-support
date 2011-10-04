@@ -15,6 +15,15 @@ export backup_name backup_contact location_info metadata_file backup_queue
 next_sn=$(get-next-harddrive)
 next_name=$(get-harddrive-name $next_sn)
 next_meta=$(get-harddrive-meta $next_sn)
+	
+state_file="/var/lib/backup/last-backup-state.$backup_name"
+
+if [ "$min_notify_interval" -a -e "$state_file" ]; then
+	if /usr/local/lib/nagios/plugins/check_last_backup_state.rb "$state_file" "$min_notify_interval" "$min_notify_interval" >/dev/null; then
+		# last backup state was ok and less than min_notify_interval ago
+		exit 0
+	fi
+fi
 
 mail -s "[$backup_name] Platte $next_name einlegen" $backup_contact <<END
 Hallo lieber Admin,
